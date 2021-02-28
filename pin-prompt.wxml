@@ -1,0 +1,42 @@
+<view class="container" wx:if="{{showHint}}" style="top: {{ top}}px;">
+  <view class='arrow'></view>
+  <view wx:if="{{type === 'bar'}}" class='body' bindtap='showDetail'>
+    <view class="bar" style="background: {{background}};">
+      <text>{{text}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{type === 'card'}}" class="body">
+    <view class="card">
+      <view class="step">
+        <view class="label">1</view>
+        <view>点击右上角</view>
+      </view>
+
+      <view class="step">
+        <view class="label">2</view>
+        <view>
+          <view>选择「添加到我的小程序」</view>
+          <image src="./assets/step-2.png" mode="aspectFit" style='width:100%;height:60px;'></image>
+        </view>
+      </view>
+      <view class="step">
+        <view class="label">3</view>
+        <view>
+          <view>微信首页下拉，快速进入小程序</view>
+          <view class="miniapp">
+            <image src="./assets/step-3.png" mode="aspectFill" style='width:100%;height:60px;'></image>
+          <image src="{{logo}}" class="logo"></image>
+          <view class="name">{{name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tail">
+      <view bindtap="onTapClose" class="got-it">我知道了</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{showBackdrop}}" bindtap="onTapBackdrop" class="backdrop"></view>
