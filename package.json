@@ -2,7 +2,10 @@
   "name": "wx-pin-prompt",
   "version": "1.1.0",
   "description": "微信小程序 「添加到我的小程序」提示",
-  "main": "index.js",
+  "files": [
+    "pin-prompt"
+  ],
+  "miniprogram": "pin-prompt",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
