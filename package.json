@@ -1,0 +1,25 @@
+{
+  "name": "wx-pin-prompt",
+  "version": "1.0.0",
+  "description": "微信小程序 「添加到我的小程序」提示",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liudding/wx-pin-prompt.git"
+  },
+  "keywords": [
+    "小程序",
+    "mini-program",
+    "wechat",
+    "component"
+  ],
+  "author": "liuding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liudding/wx-pin-prompt/issues"
+  },
+  "homepage": "https://github.com/liudding/wx-pin-prompt"
+}
