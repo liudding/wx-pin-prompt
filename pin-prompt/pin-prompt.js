@@ -2,13 +2,15 @@ const STORAGE_KEY = 'PIN_PROMPT_DATE';
 
 
 Component({
-
   properties: {
     text: {
       type: String,
       value: '点击「添加小程序」，方便下次访问'
     },
 
+    /**
+     * 展示类型
+     */
     type: {
       type: String,
       value: 'bar' // bar, card
@@ -16,7 +18,7 @@ Component({
 
     show: {
       type: Boolean,
-      value: false,
+      value: undefined,
       observer: function (val) {
         val && this.show();
         !val && this.close()
@@ -41,13 +43,17 @@ Component({
       value: '#fff'
     },
 
+    color: {
+      type: String,
+      value: '#000'
+    },
+
     /**
-     * 页面使用有导航栏
-     * 
+     * 页面使用了自定义导航栏
      */
-    navbar: {
+    customNavbar: {
       type: Boolean,
-      value: true,
+      value: false,
     },
 
     logo: {
@@ -57,12 +63,14 @@ Component({
       type: String
     },
 
+    /**
+     * 展示时长
+     */
     duration: {
       type: Number,
-      value: 0 // seconds
+      value: 5 // seconds
     }
   },
-
 
   data: {
     showHint: false,
@@ -74,22 +82,17 @@ Component({
   },
 
   attached: function () {
-    if (!this.data.navbar) {
+    if (this.data.customNavbar) {
       const bound = wx.getMenuButtonBoundingClientRect()
       this.setData({
         top: bound.bottom
       })
     }
 
-  },
-
-  ready: function () {
-
-    if (this.data.auto || this.data.show) {
+    if (this.shouldShow()) {
       this.show();
     }
   },
-
 
   methods: {
     onTapBackdrop() {
@@ -101,10 +104,6 @@ Component({
     },
 
     show() {
-      if (!this.shouldShow()) {
-        return;
-      }
-
       this.setData({
         showHint: true,
         showBackdrop: this.data.type === 'card'
@@ -112,7 +111,9 @@ Component({
 
       if (this.data.type === 'bar' && this.data.duration > 0) {
         this.data.timer = setTimeout(() => {
-          this.close();
+          if (this.data.type === 'bar') {
+            this.close();
+          }
         }, this.data.duration * 1000)
       }
     },
@@ -137,10 +138,11 @@ Component({
     },
 
     shouldShow() {
+      if (this.data.show) return true;
+
       const alreadyShown = wx.getStorageSync(STORAGE_KEY)
+
       return !(this.data.auto && alreadyShown)
     }
-
-
   }
 })

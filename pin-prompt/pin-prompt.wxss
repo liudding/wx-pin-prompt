@@ -33,7 +33,7 @@
   border-radius: 8px;
 }
 
-.bar > text {
+.bar .text {
   color: rgb(0, 0, 0);
   font-size: 12px;
   font-weight: 400;
@@ -73,28 +73,43 @@
   margin-right: 8px;
 }
 
-.card image {
+.card .image {
   margin-top: 4px;
   border-radius: 8px;
 }
 
-.miniapp {
+.quick-entry {
+  margin-top: 4px;
   position: relative;
+  height: 70px;
+  background: rgb(68, 65, 88);
+  border-radius: 8px;
+  color: white;
+  padding: 8px 16px;
 }
 
-.miniapp .logo {
-  width: 50rpx;
-  height: 50rpx;
+.quick-entry .quick-entry-title {
+  color: gray;
+  font-size: 10px;
+}
+
+.quick-entry .mini-app {
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-entry .mini-app .logo {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
   border-radius: 100%;
-  position: absolute;
-  left: 16px;
-  top: 18px;
 }
 
-.miniapp .name {
-  position: absolute;
-  top: 50px;
-  left: 16px;
+.quick-entry .mini-app .name {
+  margin-top: 4px;
+  text-align: center;
   color: white;
   font-size: 8px;
 }
