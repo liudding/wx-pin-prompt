@@ -18,7 +18,7 @@ Component({
 
     show: {
       type: Boolean,
-      value: undefined,
+      value: false,
       observer: function (val) {
         val && this.show();
         !val && this.close()
@@ -142,7 +142,11 @@ Component({
 
       const alreadyShown = wx.getStorageSync(STORAGE_KEY)
 
-      return !(this.data.auto && alreadyShown)
+      if (this.data.auto && !!alreadyShown) {
+        return false
+      }
+
+      return this.data.show;
     }
   }
 })
