@@ -2,8 +2,10 @@
 
 微信小程序中，提示用户点击左上角按钮，添加到我的小程序。
 
+### 扫码体验
+![demo-1](./screenshots/demo.jpg)
 
-
+### 示例
 ![demo-1](./screenshots/card-style.png)
 ![demo-2](./screenshots/bar-style.png)
 ![demo-3](./screenshots/with-navbar.png)
