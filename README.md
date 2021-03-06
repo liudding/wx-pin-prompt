@@ -1,14 +1,14 @@
 # pin-prompt
 
-微信小程序中，提示用户点击左上角按钮，添加到我的小程序。
+微信小程序中，提示用户点击右上角按钮，**添加到我的小程序**。
+两种展示方式：小型无干扰方式和带详细引导步骤方式
+支持自定义导航栏
 
 ### 扫码体验
-![demo-1](./screenshots/demo.jpg)
+![demo-1](./demos/demo.jpg)
 
 ### 示例
-![demo-1](./screenshots/card-style.png)
-![demo-2](./screenshots/bar-style.png)
-![demo-3](./screenshots/with-navbar.png)
+![screenshots](./demos/screenshots.jpg)
 
 ### 安装
 
@@ -18,23 +18,25 @@
 npm i --save wx-pin-prompt
 ```
 
-然后，在微信开发者工具中执行「编译 npm 」
+然后，在微信开发者工具中执行**「构建 npm 」**
 
 #### 直接下载源码
 
 直接下载源码，添加到你的项目中
 
+
+
 ### 使用
 
 在页面 json 文件中添加组件
 ``` json
-"pin-prompt": "/path/to/wx-pin-prompt/pin-prompt/pin-prompt"
+"pin-prompt": "/miniprogram_npm/wx-pin-prompt/pin-prompt"
 ```
 
 在 wxml 文件中
 
-```
-<!-- 自动在第一进入时，展示添加提示框，之后不再显示 -->
+```html
+<!-- 自动在第一次进入时，展示添加提示框，之后不再显示 -->
 <pin-prompt auto name="我的小程序" logo="../pathtoyourlogo.png"></pin-prompt> 
 
 <!-- 展示带有详细引导步骤的提示框 -->
@@ -43,6 +45,13 @@ npm i --save wx-pin-prompt
 <!-- 如果页面使用了自定义的导航栏 -->
 <pin-prompt show customNavbar name="我的小程序" logo="../pathtoyourlogo.png"></pin-prompt> 
 ```
+
+
+
+> ⚠️注意：通过 npm 安装，可能会遇到在开发者工具报错 “渲染层网络层错误” 。可忽略。在真机上可以正常运行。
+
+
+
 
 
 ### 参数
