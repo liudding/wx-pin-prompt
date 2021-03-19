@@ -10,7 +10,7 @@
     <view class="card">
       <view class="step">
         <view class="label">1</view>
-        <view>点击右上角</view>
+        <view>点击右上角 ... </view>
       </view>
 
       <view class="step">
