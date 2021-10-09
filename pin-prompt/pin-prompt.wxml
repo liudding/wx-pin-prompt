@@ -10,7 +10,10 @@
     <view class="card">
       <view class="step">
         <view class="label">1</view>
-        <view>点击右上角 ... </view>
+        <view class="step-1__desc">
+        <view>点击右上角</view>
+        <image src="./assets/dots.png" style="width: 20px; height: 20px; margin-left: 4px;"></image>
+        </view>
       </view>
 
       <view class="step">

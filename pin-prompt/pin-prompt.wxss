@@ -73,6 +73,10 @@
   margin-right: 8px;
 }
 
+.card .step-1__desc {
+  display: flex;
+}
+
 .card .image {
   margin-top: 4px;
   border-radius: 8px;
