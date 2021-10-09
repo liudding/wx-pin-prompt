@@ -81,17 +81,14 @@ Component({
     timer: null
   },
 
-  attached: function () {
-    if (this.data.customNavbar) {
-      const bound = wx.getMenuButtonBoundingClientRect()
-      this.setData({
-        top: bound.bottom
-      })
-    }
+  lifetimes: {
+    attached: function () {
+     this._attached();
+    },
+  },
 
-    if (this.shouldShow()) {
-      this.show();
-    }
+  attached: function () {
+    this._attached();
   },
 
   methods: {
@@ -138,15 +135,26 @@ Component({
     },
 
     shouldShow() {
-      if (this.data.show) return true;
+      if (this.data.auto) {
+        const alreadyShown = wx.getStorageSync(STORAGE_KEY)
 
-      const alreadyShown = wx.getStorageSync(STORAGE_KEY)
+        return !alreadyShown;
+      }
+     
+      return this.data.show;
+    },
 
-      if (this.data.auto && !!alreadyShown) {
-        return false
+    _attached() {
+      if (this.data.customNavbar) {
+        const bound = wx.getMenuButtonBoundingClientRect()
+        this.setData({
+          top: bound.bottom
+        })
       }
 
-      return this.data.show;
+      if (this.shouldShow()) {
+        this.show();
+      }
     }
   }
 })
