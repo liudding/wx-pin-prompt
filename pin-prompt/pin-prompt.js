@@ -165,11 +165,8 @@ Component({
       const isSupport = !!wx.getMenuButtonBoundingClientRect
       const rect = isSupport ? wx.getMenuButtonBoundingClientRect() : {}
 
-      console.log(rect, '===')
-
       wx.getSystemInfo({
         success: (res) => {
-          console.log(res, rect)
           this.setData({
             position: {
               top: this.data.customNavbar ? rect.bottom : 0,
