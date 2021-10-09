@@ -1,6 +1,5 @@
 const STORAGE_KEY = 'PIN_PROMPT_DATE';
 
-
 Component({
   properties: {
     text: {
@@ -76,15 +75,25 @@ Component({
     showHint: false,
     showBackdrop: false,
 
-    top: 0,
+    position: {
+      top: 0,
+      right: 0
+    },
 
     timer: null
   },
 
   lifetimes: {
     attached: function () {
-     this._attached();
+      this._attached();
     },
+  },
+
+  pageLifetimes: {
+    resize: function(size) {
+      // 页面尺寸变化
+      this._updatePosition()
+    }
   },
 
   attached: function () {
@@ -140,21 +149,36 @@ Component({
 
         return !alreadyShown;
       }
-     
+
       return this.data.show;
     },
 
     _attached() {
-      if (this.data.customNavbar) {
-        const bound = wx.getMenuButtonBoundingClientRect()
-        this.setData({
-          top: bound.bottom
-        })
-      }
+      this._updatePosition()
 
       if (this.shouldShow()) {
         this.show();
       }
+    },
+
+    _updatePosition() {
+      const isSupport = !!wx.getMenuButtonBoundingClientRect
+      const rect = isSupport ? wx.getMenuButtonBoundingClientRect() : {}
+
+      console.log(rect, '===')
+
+      wx.getSystemInfo({
+        success: (res) => {
+          console.log(res, rect)
+          this.setData({
+            position: {
+              top: this.data.customNavbar ? rect.bottom : 0,
+              right: res.screenWidth - rect.left - rect.width * 3 / 4
+            }
+          })
+        }
+      })
+
     }
   }
 })

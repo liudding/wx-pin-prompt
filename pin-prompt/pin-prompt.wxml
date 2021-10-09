@@ -1,4 +1,4 @@
-<view class="container" wx:if="{{showHint}}" style="top: {{ top}}px;">
+<view class="container" wx:if="{{showHint}}" style="top: {{ position.top}}px; right:{{position.right}}px;">
   <view class='arrow' style="border-bottom-color: {{ type === 'bar' ? background : '#fff'}};"></view>
   <view wx:if="{{type === 'bar'}}" class='body' bindtap='showDetail'>
     <view class="bar" style="background: {{background}};">

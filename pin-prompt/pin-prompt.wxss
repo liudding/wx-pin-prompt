@@ -16,15 +16,14 @@
 .arrow {
   width: 0;
   height: 0;
-  margin-right: 130rpx;
-  border-width: 20rpx;
+  margin-right: 30px;
+  border-width: 10px;
   border-style: solid;
-  border-color:  transparent transparent #fff transparent;
+  border-color: transparent transparent #fff transparent;
 }
 
 .body {
   min-height: 40px;
-  margin-right: 60rpx;
 }
 
 .bar {
@@ -43,7 +42,7 @@
   background-color: #fff;
   box-shadow: 0 10rpx 20rpx -10rpx #fff;
   border-radius: 16px;
-  min-width: 500rpx;
+  min-width: 200rpx;
   padding: 24px;
   display: flex;
   flex-direction: column;
