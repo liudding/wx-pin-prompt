@@ -63,7 +63,7 @@ npm i --save wx-pin-prompt
 | background | \#fff (白色)                   | 提示框背景色                                              |
 | customNavbar | false                             | 页面是否使用自定义的导航栏，用于自动定位提示框              |
 | auto       | false                            | 如果为 true，则自动在第一次打开时提示，之后不在展示       |
-| duration   | 5                                | 展示时长。之后自动隐藏                                    |
+| duration   | 5                                | 展示时长（秒）。之后自动隐。0代表不自动隐藏                                    |
 | logo       | 无                               | 用于详细引导步骤中，展示自家小程序 logo                   |
 | name       | 无                               | 用于详细引导步骤中，展示自家小程序名称                    |
 | show       | false                            | 展示提示框                                                |
