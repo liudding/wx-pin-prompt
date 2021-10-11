@@ -1,6 +1,6 @@
 {
   "name": "wx-pin-prompt",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "微信小程序 「添加到我的小程序」提示",
   "files": [
     "pin-prompt"
