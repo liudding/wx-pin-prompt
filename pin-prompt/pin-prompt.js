@@ -63,6 +63,14 @@ Component({
     },
 
     /**
+     * 延迟展示
+     */
+    delay: {
+      type: Number,
+      value: 0 // seconds
+    },
+
+    /**
      * 展示时长
      */
     duration: {
@@ -166,7 +174,9 @@ Component({
       this._updatePosition()
 
       if (this.shouldShow()) {
-        this.show();
+        setTimeout(() => {
+          this.show();
+        }, this.data.delay * 1000)
       }
     },
 
