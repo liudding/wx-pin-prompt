@@ -90,7 +90,7 @@ Component({
   },
 
   pageLifetimes: {
-    resize: function(size) {
+    resize: function (size) {
       // 页面尺寸变化
       this._updatePosition()
     }
@@ -111,6 +111,7 @@ Component({
 
     show() {
       this.setData({
+        show: true,
         showHint: true,
         showBackdrop: this.data.type === 'card'
       });
@@ -126,6 +127,7 @@ Component({
 
     close() {
       this.setData({
+        show: false,
         showHint: false,
         showBackdrop: false
       });
@@ -137,6 +139,7 @@ Component({
       this.data.timer && clearTimeout(this.data.timer)
 
       this.setData({
+        show: true,
         showHint: true,
         showBackdrop: true,
         type: 'card'
