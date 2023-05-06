@@ -123,6 +123,8 @@ Component({
           }
         }, this.data.duration * 1000)
       }
+
+      this.triggerEvent('show')
     },
 
     close() {
@@ -133,6 +135,8 @@ Component({
       });
 
       wx.setStorageSync(STORAGE_KEY, Date.now())
+
+      this.triggerEvent('close')
     },
 
     showDetail: function () {
@@ -144,6 +148,8 @@ Component({
         showBackdrop: true,
         type: 'card'
       });
+
+      this.triggerEvent('showDetail')
     },
 
     shouldShow() {
