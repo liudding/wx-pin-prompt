@@ -15,7 +15,7 @@
   
 
 ### 扫码体验
-![demo-1](./demos/demo.jpg)
+![demo-1](./demos/demo.png)
 
 ### 示例
 ![screenshots](./demos/screenshots.jpg)
