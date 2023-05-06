@@ -47,7 +47,7 @@ npm i --save wx-pin-prompt
 
 ```html
 <!-- 自动在第一次进入时，展示添加提示框，之后不再显示 -->
-<pin-prompt auto name="我的小程序" logo="../pathtoyourlogo.png"></pin-prompt> 
+<pin-prompt auto delay="{{3}}" name="我的小程序" logo="../pathtoyourlogo.png"></pin-prompt> 
 
 <!-- 展示带有详细引导步骤的提示框 -->
 <pin-prompt show type="card" name="我的小程序" logo="../pathtoyourlogo.png"></pin-prompt> 
@@ -70,12 +70,13 @@ npm i --save wx-pin-prompt
 | ---------- | -------------------------------- | --------------------------------------------------------- |
 | text       | 点击「添加小程序」，方便下次访问 | 提示语                                                    |
 | type       | bar                              | 【提示框类型】bar：长条型，点击会展示 card 型；card：卡片型（含详细引导步骤） |
-| background | \#fff (白色)                   | 提示框背景色                                              |
-| customNavbar | false                             | 页面是否使用自定义的导航栏，用于自动定位提示框              |
+| background | \#fff (白色)                     | 提示框背景色                                              |
+| customNavbar | false                          | 页面是否使用自定义的导航栏，用于自动定位提示框              |
 | auto       | false                            | 如果为 true，则自动在第一次打开时提示，之后不在展示       |
+| delay      | 0                                | 延迟展示的时间（秒）。默认不延迟       |
 | duration   | 5                                | 展示时长（秒）。之后自动隐藏。0 代表不自动隐藏                              |
 | logo       | 无                               | 用于详细引导步骤中，展示自家小程序 logo                   |
 | name       | 无                               | 用于详细引导步骤中，展示自家小程序名称                    |
 | show       | false                            | 展示提示框                                                |
-| showDetail | false                            | 展示详细步骤提示框                                        |
+| showDetail | false                            | 展示 card 型提示框                                        |
 
