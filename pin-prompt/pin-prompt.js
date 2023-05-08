@@ -76,6 +76,11 @@ Component({
     duration: {
       type: Number,
       value: 5 // seconds
+    },
+
+    backdrop: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -121,7 +126,7 @@ Component({
       this.setData({
         show: true,
         showHint: true,
-        showBackdrop: this.data.type === 'card'
+        showBackdrop: this.data.backdrop || this.data.type === 'card'
       });
 
       if (this.data.type === 'bar' && this.data.duration > 0) {

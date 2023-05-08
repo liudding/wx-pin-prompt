@@ -1,5 +1,6 @@
-<view class="container" wx:if="{{showHint}}" style="top: {{ position.top}}px; right:{{position.right}}px;">
-  <view class='arrow' style="border-bottom-color: {{ type === 'bar' ? background : '#fff'}};"></view>
+<view class="container" wx:if="{{showHint}}"
+  style="top: {{ position.top}}px; right:{{position.right}}px;">
+  <view class='arrow' style="border-bottom-color: {{ background || '#fff'}};"></view>
   <view wx:if="{{type === 'bar'}}" class='body' bindtap='showDetail'>
     <view class="bar" style="background: {{background}};">
       <text class="text" style="color: {{color}}">{{text}}</text>
@@ -11,8 +12,8 @@
       <view class="step">
         <view class="label">1</view>
         <view class="step-1__desc">
-        <view>点击右上角</view>
-        <image src="./assets/dots.png" style="width: 20px; height: 20px; margin-left: 4px;"></image>
+          <view>点击右上角</view>
+          <image src="./assets/dots.png" style="width: 20px; height: 20px; margin-left: 4px;"></image>
         </view>
       </view>
 
@@ -20,7 +21,8 @@
         <view class="label">2</view>
         <view>
           <view>选择「添加到我的小程序」</view>
-          <image src="./assets/step-2.png" mode="aspectFit" class="image" style='width:100%;height:60px;'></image>
+          <image src="./assets/step-2.png" mode="aspectFit" class="image"
+            style='width:100%;height:60px;'></image>
         </view>
       </view>
       <view class="step">
