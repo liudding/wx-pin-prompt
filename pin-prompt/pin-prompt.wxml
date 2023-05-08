@@ -50,4 +50,4 @@
   </view>
 </view>
 
-<view wx:if="{{showBackdrop}}" bindtap="onTapBackdrop" class="backdrop"></view>
+<view wx:if="{{showBackdrop || backdrop}}" bindtap="onTapBackdrop" class="backdrop"></view>
