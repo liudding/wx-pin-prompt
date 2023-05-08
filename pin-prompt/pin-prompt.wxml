@@ -42,6 +42,10 @@
       <view bindtap="onTapClose" class="got-it">我知道了</view>
     </view>
   </view>
+
+  <view wx:if="{{type === 'custom'}}" class="body">
+    <slot></slot>
+  </view>
 </view>
 
 <view wx:if="{{showBackdrop}}" bindtap="onTapBackdrop" class="backdrop"></view>
