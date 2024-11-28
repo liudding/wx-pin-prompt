@@ -1,5 +1,7 @@
 const STORAGE_KEY = 'PIN_PROMPT_DATE';
 
+import { checkIsAdded } from './utils'
+
 Component({
   properties: {
     text: {
@@ -22,6 +24,11 @@ Component({
         val && this.show();
         !val && this.close()
       }
+    },
+
+    showWhenNotAdded: {
+      type: Boolean,
+      value: false,
     },
 
     showDetail: {
@@ -97,8 +104,8 @@ Component({
   },
 
   lifetimes: {
-    attached: function () {
-      this._attached();
+    attached: async function () {
+      await this._attached();
     },
   },
 
@@ -165,7 +172,14 @@ Component({
       this.triggerEvent('showDetail')
     },
 
-    shouldShow() {
+    async shouldShow() {
+      if (this.data.showWhenNotAdded) {
+        const isAdded = await checkIsAdded()
+        if (isAdded !== null) {
+          return !isAdded
+        }
+      }
+
       if (this.data.auto) {
         const alreadyShown = wx.getStorageSync(STORAGE_KEY)
 
@@ -175,10 +189,10 @@ Component({
       return this.data.show;
     },
 
-    _attached() {
+    async _attached() {
       this._updatePosition()
 
-      if (this.shouldShow()) {
+      if (await this.shouldShow()) {
         setTimeout(() => {
           this.show();
         }, this.data.delay * 1000)

@@ -78,5 +78,6 @@ npm i --save wx-pin-prompt
 | logo       | 无                               | 用于详细引导步骤中，展示自家小程序 logo                   |
 | name       | 无                               | 用于详细引导步骤中，展示自家小程序名称                    |
 | show       | false                            | 展示提示框                                                |
-| showDetail | false                            | 展示 card 型提示框                                        |
+| showWhenNotAdded       | false             | 当未添加时展示                                                |
+| showDetail | false                            | 展示详细步骤提示框                                        |
 
