@@ -31,6 +31,14 @@ Component({
       value: false,
     },
 
+    /**
+     * 距离上次展示时，的最小时间间隔。时间单位：分钟
+     */
+    interval: {
+      type: Number,
+      value: 10080 // 一周
+    },
+
     showDetail: {
       type: Boolean,
       value: false,
@@ -173,20 +181,27 @@ Component({
     },
 
     async shouldShow() {
+      if (this.data.show) {
+        return this.data.show
+      }
+
+      const lastShowTime = wx.getStorageSync(STORAGE_KEY)
+      if (this.data.auto) {
+        return !lastShowTime;
+      }
+
+      // 当未添加时，展示提示框。
       if (this.data.showWhenNotAdded) {
         const isAdded = await checkIsAdded()
-        if (isAdded !== null) {
-          return !isAdded
+        if (isAdded) { // 已经添加了，则不展示
+          return false;
         }
+
+        const delta = Date.now() - (lastShowTime || 0);
+        return delta > this.data.interval * 60000
       }
 
-      if (this.data.auto) {
-        const alreadyShown = wx.getStorageSync(STORAGE_KEY)
-
-        return !alreadyShown;
-      }
-
-      return this.data.show;
+      return false;
     },
 
     async _attached() {
@@ -195,6 +210,9 @@ Component({
       if (await this.shouldShow()) {
         setTimeout(() => {
           this.show();
+
+          // 记录上次展示的时间
+          wx.setStorageSync(STORAGE_KEY, Date.now())
         }, this.data.delay * 1000)
       }
     },

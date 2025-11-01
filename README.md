@@ -79,5 +79,6 @@ npm i --save wx-pin-prompt
 | name       | 无                               | 用于详细引导步骤中，展示自家小程序名称                    |
 | show       | false                            | 展示提示框                                                |
 | showWhenNotAdded       | false             | 当未添加时展示                                                |
+| interval       | 10080 （一周）             | 展示的最小时间间隔，单位：分钟。当已经添加后，则不再展示。 仅当           showWhenNotAdded = true 时有效。                                      |
 | showDetail | false                            | 展示详细步骤提示框                                        |
 
