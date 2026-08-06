@@ -120,7 +120,11 @@ Component({
   pageLifetimes: {
     resize: function (size) {
       // 页面尺寸变化
-      this._updatePosition()
+      setTimeout(() => {
+        // 防止微信报错：getMenuButtonBoundingClientRect:fail global.windowMap is not iterable
+        this._updatePosition()
+      }, 100)
+      
     }
   },
 
@@ -219,7 +223,10 @@ Component({
 
     _updatePosition() {
       const isSupport = !!wx.getMenuButtonBoundingClientRect
-      const rect = isSupport ? wx.getMenuButtonBoundingClientRect() : {}
+      const rect = (isSupport ? wx.getMenuButtonBoundingClientRect() : {}) || {
+        bottom: 0,
+        left: 0,
+      }
 
       wx.getSystemInfo({
         success: (res) => {
