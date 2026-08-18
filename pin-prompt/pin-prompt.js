@@ -124,7 +124,7 @@ Component({
         // 防止微信报错：getMenuButtonBoundingClientRect:fail global.windowMap is not iterable
         this._updatePosition()
       }, 100)
-      
+
     }
   },
 
@@ -185,6 +185,11 @@ Component({
     },
 
     async shouldShow() {
+      const isAdded = await checkIsAdded()
+      if (isAdded) { // 已经添加了，则不展示
+        return false;
+      }
+
       if (this.data.show) {
         return this.data.show
       }
@@ -196,11 +201,6 @@ Component({
 
       // 当未添加时，展示提示框。
       if (this.data.showWhenNotAdded) {
-        const isAdded = await checkIsAdded()
-        if (isAdded) { // 已经添加了，则不展示
-          return false;
-        }
-
         const delta = Date.now() - (lastShowTime || 0);
         return delta > this.data.interval * 60000
       }
